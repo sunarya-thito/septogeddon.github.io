@@ -1,0 +1,81 @@
+button {
+    display: inline-block;
+    border: none;
+    text-align: center;
+    box-sizing: border-box;
+    padding: 2px 30px;
+    border-radius: 5px;
+    margin: 2px;
+    font-weight: lighter;
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+    border-radius: 100px;
+    z-index: 99999999999;
+    opacity: 0.5;
+}
+
+::-webkit-scrollbar:focus {
+    opacity: 1;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 100px;
+    opacity: 0.5;
+}
+
+::-webkit-scrollbar-track:focus {
+    opacity: 1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 100px;
+    opacity: 0.5;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+    opacity: 1;
+}
+
+select {
+    border-radius: 100px;
+    padding: 5px 10px 5px 10px;
+}
+
+select:focus {
+    outline: 0;
+}
+
+.blue-button {
+    background-color: #7289DA;
+    color: white;
+}
+
+button {
+    position: relative;
+    overflow: visible;
+    background: transparent;
+    transition: transform 0.5s ease;
+}
+
+button:focus {
+    outline: 0;
+}
+
+button:hover {
+    transform: translateY(-4px);
+    transition: transform 0.5s ease;
+}
+
+button:disabled {
+    background: #99AAB5;
+}
