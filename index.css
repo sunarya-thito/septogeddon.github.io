@@ -1,233 +1,300 @@
-@font-face {
-    font-family: 'Product Sans';
-    font-style: normal;
-    font-weight: 400;
-    src: local('Open Sans'), local('OpenSans'), url(https://fonts.gstatic.com/s/productsans/v5/HYvgU2fE2nRJvZ5JFAumwegdm0LZdjqr5-oayXSOefg.woff2) format('woff2');
-}
+@import url('http://fonts.cdnfonts.com/css/montserrat');
 
-* {
-    font-family: 'Product Sans', sans-serif;
-    -webkit-touch-callout: none; /* iOS Safari */
-    -webkit-user-select: none; /* Safari */
-    -khtml-user-select: none; /* Konqueror HTML */
-    -moz-user-select: none; /* Firefox */
-    -ms-user-select: none; /* Internet Explorer/Edge */
-    user-select: none; /* Non-prefixed version, currently
-                                  supported by Chrome and Opera */
+html {
+    scroll-behavior: smooth;
+    height: 100%;
 }
 
 body {
-    background-color: #23272A;
-}
-
-@media screen and (max-width: 800px) {
-    #profileWindow {
-        min-height: 95%;
-        min-width: 95vw;
-    }
-    #window {
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        max-height: 100%;
-        min-height: 100%;
-    }
-    #socialInfo {
-        min-height: max-content;
-    }
-    #greeter {
-        font-size: 10vw;
-    }
-}
-
-@media screen and (max-height: 600px) {
-    #socialInfo {
-        min-height: max-content;
-    }
-}
-
-#greeter {
-    text-shadow: 2px 2px 18px rgba(0, 0, 0, 0.7);
-}
-
-@media screen and (max-width: 600px) {
-    #profileWindow {
-        min-height: 100%;
-        min-width: 100vw;
-    }
-    #window {
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        max-height: 100%;
-        min-height: 100%;
-    }
-}
-
-@media screen and (max-width: 650px) {
-    .responsiveMessageBox {
-        min-width: 100%;
-    }
-}
-
-.responsiveMessageBox {
-    width: auto;
-    min-width: 50%;
-}
-
-#profileWindow {
-    width: 550px;
-    height: auto;
-    overflow: hidden;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
-
-#window {
-    width: 100%;
     height: 100%;
-    max-height: 90vh;
-    overflow: auto;
-    display: flex;
-    flex-direction: column;
-    background-color: white;
+    margin: 0;
+    padding: 0;
+    background-color: #401f62;
+    font-family: 'Montserrat';
 }
 
-#profileInfo {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 2em;
-    text-align: center;
+.overlay * {
+    transition: color;
 }
 
-.socialImage {
-    width: 100%;
-    object-fit: scale-down;
+.dark {
+    color: white;
 }
 
-.socialButton {
-    padding: 1em;
-    width: 0px;
-    cursor: pointer;
-    transition: all 0.5s ease;
-    border-radius: 5px;
-    text-align: center;
-    align-items: center;
-    flex-direction: column;
-    overflow: hidden;
-    color: dimgrey;
-    opacity: 0;
-    transform: scale(0);
-    display: flex;
+.dark .card {
+    background-color: #181818;
 }
 
-.imageReady {
-    margin: 0 0.5em;
-    transition: all 0.5s ease;
-    opacity: 1;
-    width: 80px;
-    transform: scale(1);
+.dark a {
+    color: white;
 }
 
-#socialInfo {
-    margin-top: 1em;
-    padding: 1em 3em;
-    overflow: auto;
-    height: 100%;
+.dark .social-image {
+    filter: invert() grayscale(1);
 }
 
-h1, h2, h3 {
-    letter-spacing: 1px;
+.dark .expandable-image {
+    filter: invert();
 }
 
-h1, h3, h4, h5 {
-    font-weight: bold;
+.dark .toggle-circle {
+    background-color: #181818;
 }
 
-.socialButton:hover {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    transition: all 0.5s ease;
-    color: black;
-    transform: translateY(-5px);
-}
-
-#contactButton {
-    display: flex;
-    align-content: space-between;
-    justify-content: center;
-    flex-flow: row wrap;
-}
-
-#name {
-    font-size: 2.5em;
-}
-
-#alias {
-    font-size: 2em;
-}
-
-#container {
-    position: absolute;
+#background {
+    z-index: -1;
+    position: fixed;
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
-    z-index: 2;
+    background-image: url("bg.jpg");
+    background-repeat: repeat;
+    background-size: 50%;
+    opacity: 0.2;
+}
+
+.overlay {
+    position: relative;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5em;
+    width: 40%;
+    height: 100%;
+}
+
+.container {
+    padding: 12.5% 0;
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+@media only screen and (max-width: 1200px) {
+    .wrapper {
+        width: 50%;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    .wrapper {
+        width: 90%;
+    }
+}
+
+.pfp {
+    max-width: 10em;
+    max-height: 10em;
+    min-width: 10em;
+    min-height: 10em;
+    position: relative;
+    overflow: hidden;
+    border-radius: 50%;
+}
+
+.pfp-img {
+    display: inline;
+    margin: 0 auto;
+    height: 100%;
+    width: auto;
+}
+
+.container::-webkit-scrollbar {
+    display: none;
+}
+
+.card {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.38) 0 5px 10px;
+    padding: 1em 2em;
+}
+
+.biodata {
+    display: flex;
+}
+
+.card-header {
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.expandable {
+    display: flex;
+    justify-content: end;
+    flex: 1;
+}
+
+.expandable-content {
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.5s ease;
+}
+
+.expandable-image {
+    width: 1.2em;
+    height: 1.2em;
+    opacity: 0.8;
+    transition: transform ease 0.5s;
+}
+
+.expanded .expandable-image {
+    transform: rotate(180deg);
+}
+
+.history, .skill {
+    margin-top: 2em;
+    margin-bottom: 2em;
+    gap: 1em;
+    display: flex;
+    flex-direction: column;
+}
+
+.history-item, .skill-item {
+    display: flex;
+    gap: 1em;
+}
+
+.history-image, .skill-image, .social-image {
+    width: 100%;
+    height: auto;
+}
+
+.skill-image-wrapper, .history-image-wrapper {
+    position: relative;
+    width: 4em;
+}
+
+.social-image-wrapper {
+    position: relative;
+    width: 3em;
+}
+
+.history-title, .skill-title {
+    font-size: 1.5em;
+}
+
+.history-subtitle, .skill-subtitle {
+    opacity: 0.5;
+}
+
+.social {
+    margin: 2em 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1em;
+}
+
+.social-item {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+}
+.visit {
+    flex: 1;
+    text-align: end;
+    transition: opacity 0.2s ease;
+    opacity: 0;
+}
+
+.social-item:hover .visit {
+    opacity: 0.5;
+}
+
+.social-hyperlink {
+    color: black;
+    text-decoration: none;
+}
+
+.normal-hyperlink {
+    color: black;
+    text-decoration: none;
+}
+
+.title-entry {
+    height: 2em;
+
+    font-size: 1.5em;
+    font-weight: bold;
     overflow: hidden;
 }
 
-#profileScreen {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    width: 100%;
-    background-color: rgba(35, 39, 42, 0.2);
+.animated-title-entry {
+    animation-name: pindahKeatas;
+    animation-delay: 1s;
+    animation-duration: 0.25s;
 }
 
-#welcomeScreen {
-    color: white;
-    font-size: 5vw;
-    display: flex;
-    letter-spacing: 3px;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    width: 100%;
-}
-
-.slide-in-bottom {
-    -webkit-animation: slide-in-bottom 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-    animation: slide-in-bottom 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-}
-
-@-webkit-keyframes slide-in-bottom {
-    0% {
-        -webkit-transform: translateY(1000px);
-        transform: translateY(1000px);
-        opacity: 0;
-    }
-    100% {
-        -webkit-transform: translateY(0);
+@keyframes pindahKeatas {
+    from {
         transform: translateY(0);
-        opacity: 1;
+    }
+    to {
+        transform: translateY(-100%);
     }
 }
-@keyframes slide-in-bottom {
-    0% {
-        -webkit-transform: translateY(1000px);
-        transform: translateY(1000px);
-        opacity: 0;
-    }
-    100% {
-        -webkit-transform: translateY(0);
-        transform: translateY(0);
-        opacity: 1;
-    }
+
+.biodata-title {
+    height: 2em;
+    overflow: hidden;
+}
+
+.biodata-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.biodata-text {
+    margin: 0.5em 0;
+}
+
+.biodata-footer {
+    flex: 1;
+    display: flex;
+    justify-content: end;
+    align-items: end;
+}
+
+.toggle {
+    height: 1.5em;
+    width: 3em;
+    background-color: #818181;
+    padding: 0.2em;
+    border-radius: 2em;
+}
+
+.mode-switcher {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+}
+
+.mode-switcher-text {
+    opacity: 0.6;
+}
+
+.toggle.active .toggle-circle {
+    transform: translateX(100%);
+}
+
+.toggle-circle {
+    height: 1.5em;
+    width: 1.5em;
+    background-color: #ffffff;
+    border-radius: 50%;
+    transition: transform 0.2s ease;
 }

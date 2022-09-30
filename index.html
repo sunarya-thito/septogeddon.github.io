@@ -1,106 +1,277 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>@sunarya-thito</title>
-        <script src="//code.jquery.com/jquery-3.5.1.min.js"></script>
-        <script src="//cdn.jsdelivr.net/npm/velocity-animate@2.0/velocity.min.js"></script>
-        <script src="expensiveUI.js"></script>
-        <script src="animation.js"></script>
-        <script src="messageBox.js"></script>
-        <script src="index.js"></script>
-        <link type="text/css" rel="stylesheet" href="bootstrap.css">
-        <link type="text/css" rel="stylesheet" href="index.css">
-        <link type="text/css" rel="stylesheet" href="expensiveUI.css">
-        <link type="text/css" rel="stylesheet" href="animation.css">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <title>Thito Yalasatria Sunarya</title>
+    <link rel="stylesheet" href="index.css">
+    <script src="index.js"></script>
+</head>
     <body>
-        <div id="container">
-            <div id="welcomeScreen" style="display: none">
-                <div id="greeter"></div>
-            </div>
-            <div id="profileScreen" style="display: none">
-                <div id="profileWindow">
-                    <div id="window">
-                        <div id="windowTop">
-                            <div id="profileInfo">
-                                <h1 id="name">Thito Yalasatria Sunarya</h1>
-                                <h2 id="alias">Full Stack Developer</h2>
+    <div id="background"></div>
+    <div class="overlay">
+        <div class="container">
+            <div class="wrapper">
+                <div class="card">
+                    <div class="biodata">
+                        <div class="pfp">
+                            <img class="pfp-img" src="kayo.png">
+                        </div>
+                        <div class="biodata-content">
+                            <div class="biodata-title">
+                                <div class="title-entry animated-title-entry" id="title-entry-primary">
+                                    Halo! Nama saya Thito!
+                                </div>
+                                <div class="title-entry animated-title-entry" id="title-entry-secondary">
+                                    ¡Hola! ¡Mi nombre es Thito!
+                                </div>
                             </div>
-                            <div id="contactButton">
-                                <div class="socialButton" onclick="go('https://www.spigotmc.org/members/septogeddon.384728/')">
-                                    <img src="spigotmc.png" class="socialImage">
-                                    SpigotMC
-                                </div>
-                                <div class="socialButton" onclick="go('https://www.mc-market.org/members/118996/')">
-                                    <img src="mcmarket.png" class="socialImage">
-                                    MCM
-                                </div>
-                                <div class="socialButton" onclick="go('https://github.com/sunarya-thito')">
-                                    <img src="github.svg" class="socialImage">
-                                    GitHub
-                                </div>
-                                <div class="socialButton" onclick="openDiscord()">
-                                    <img src="discord.png" class="socialImage">
-                                    Discord
-                                </div>
-                                <div class="socialButton" onclick="go('https://www.instagram.com/sunaryathito')">
-                                    <img src="instagram.png" class="socialImage">
-                                    Instagram
+                            <div class="biodata-text">Saya Thito Yalasatria Sunarya, lahir di Ciamis pada tanggal 5 November 2002. Saya bekerja sebagai free-lancer di SpigotMC dan BuiltByBit.</div>
+                            <div class="biodata-footer">
+                                <div class="mode-switcher">
+                                    <div class="mode-switcher-text">
+                                        Mode Gelap
+                                    </div>
+                                    <div class="toggle" id="dark-mode-switcher">
+                                        <div class="toggle-circle"></div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <div id="socialInfo">
-                            <h4>Introduction</h4>
-                            <p>
-                                I'm Thito Yalasatria Sunarya, also known as Septogeddon. I live in Indonesia.
-                            </p>
-                            <h4>My Projects</h4>
-                            <h5>PlayerListDeluxe</h5>
-                            <span>
-                                    PlayerListDeluxe is a spigot server plugin that allows you to edit your server tablist entry.
-                                </span>
-                            <h5>BeaconPlus</h5>
-                            <span>
-                                    BeaconPlus is a spigot server plugin that allows you to add more capabilities of a beacon to your server.
-                                </span>
-                            <h5>SpookitTranslate</h5>
-                            <span>
-                                    SpookitTranslate is a spigot server plugin that allows you to translate your server messages. Great for foreign player.
-                                </span>
-                            <h5>PluginQuery</h5>
-                            <span>
-                                    PluginQuery is a spigot/bungeecord/velocity plugin that allows you to send and receive Query PluginMessages.
-                                </span>
-                            <h5>PandawaJS</h5>
-                            <span>
-                                    PandawaJS is a spigot plugin that allows you create your own custom plugin using javascript.
-                                </span>
-                            <h5>GUIMakerRevolution</h5>
-                            <span>
-                                    GUIMakerRevolution is an In-Game GUI Editor for your spigot server. Allows you to create animated top and bottom inventory easily.
-                                </span>
-                            <h5>And more...</h5>
-                            <span>
-                                You can find it on my SpigotMC resources page or my Github Repository
-                            </span>
-                            <h4>My Skills</h4>
-                            <p>
-                            <ul>
-                                <li>Java Programming</li>
-                                <li>Graphic Designing</li>
-                                <li>Website Programming</li>
-                            </ul>
-                            </p>
-                            <h4>Get In Touch With Me</h4>
-                            <p>
-                                You can contact me on Spigot, MC-Market, and Discord (Click on the buttons above).
-                            </p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        Riwayat Hidup
+                        <div class="expandable">
+                            <img class="expandable-image" src="expand.png">
+                        </div>
+                    </div>
+                    <div class="expandable-content">
+                        <div class="history">
+                            <div class="history-item">
+                                <div class="history-image-wrapper">
+                                    <img class="history-image" src="sd.jpg"/>
+                                </div>
+                                <div class="history-content">
+                                    <div class="history-title">
+                                        SDN 2 Situbatu
+                                    </div>
+                                    <div class="history-subtitle">
+                                        2011 - 2017
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="history">
+                            <div class="history-item">
+                                <div class="history-image-wrapper">
+                                    <img class="history-image" src="smp.jpg"/>
+                                </div>
+                                <div class="history-content">
+                                    <div class="history-title">
+                                        SMP Negeri 2 Banjar
+                                    </div>
+                                    <div class="history-subtitle">
+                                        2017 - 2019
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="history">
+                            <div class="history-item">
+                                <div class="history-image-wrapper">
+                                    <img class="history-image" src="sma.png"/>
+                                </div>
+                                <div class="history-content">
+                                    <div class="history-title">
+                                        SMA Negeri 1 Banjar
+                                    </div>
+                                    <div class="history-subtitle">
+                                        2019 - 2021
+                                    </div>
+                                    Mengambil jurusan IPA
+                                </div>
+                            </div>
+                        </div>
+                        <div class="history">
+                            <div class="history-item">
+                                <div class="history-image-wrapper">
+                                    <img class="history-image" src="univ.jpg"/>
+                                </div>
+                                <div class="history-content">
+                                    <div class="history-title">
+                                        Institut Teknologi Bandung
+                                    </div>
+                                    <div class="history-subtitle">
+                                        2021 - Sekarang
+                                    </div>
+                                    Mengambil program studi S1 Teknik Informatika
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        Skill
+                        <div class="expandable">
+                            <img class="expandable-image" src="expand.png">
+                        </div>
+                    </div>
+                    <div class="expandable-content">
+                        <div class="skill">
+                            <div class="skill-item">
+                                <div class="skill-image-wrapper">
+                                    <img class="skill-image" src="java.png">
+                                </div>
+                                <div class="skill-content">
+                                    <div class="skill-title">Java</div>
+                                    <div class="skill-subtitle">Sejak 2017</div>
+                                    <ul>
+                                        <li>Memahami konsep OOP</li>
+                                        <li>Memahami multithreading</li>
+                                        <li>Memahami konsep Socket</li>
+                                        <li>Berpengalaman dengan byte-code manipulation</li>
+                                        <li>Berpengalaman menggunakan Java Swing</li>
+                                        <li>Berpengalaman menggunakan JavaFX</li>
+                                        <li>Berpengalaman dengan Spigot-API</li>
+                                        <li>Berpengalaman dengan Bungeecord-API</li>
+                                        <li>Berpengalaman dengan Velocity-API</li>
+                                        <li>Berpengalaman membuat RestfulAPI menggunakan SpringBoot</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-image-wrapper">
+                                    <img class="skill-image" src="flutter.png">
+                                </div>
+                                <div class="skill-content">
+                                    <div class="skill-title">Flutter dan Dart</div>
+                                    <div class="skill-subtitle">Sejak 2022</div>
+                                    <ul>
+                                        <li>Memahami konsep state-management</li>
+                                        <li>Berpengalaman membuat aplikasi android</li>
+                                        <li>Berpengalaman membuat aplikasi windows</li>
+                                        <li>Berpengalaman membuat website</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-image-wrapper">
+                                    <img class="skill-image" src="arduino.png">
+                                </div>
+                                <div class="skill-content">
+                                    <div class="skill-title">Arduino dan C++</div>
+                                    <div class="skill-subtitle">Sejak 2021</div>
+                                    <ul>
+                                        <li>Berpengalaman membuat alat IOT</li>
+                                        <li>Berpengalaman dengan EEPROM</li>
+                                        <li>Berpengalaman dengan Sensor DHT11</li>
+                                        <li>Berpengalaman dengan Relay</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-image-wrapper">
+                                    <img class="skill-image" src="mongodb.png">
+                                </div>
+                                <div class="skill-content">
+                                    <div class="skill-title">MongoDB</div>
+                                    <div class="skill-subtitle">Sejak 2022</div>
+                                    <ul>
+                                        <li>Berpengalaman dengan Aggregation</li>
+                                        <li>Mampu mengintegrasikan dengan SpringBoot</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-image-wrapper">
+                                    <img class="skill-image" src="html.png">
+                                </div>
+                                <div class="skill-content">
+                                    <div class="skill-title">Web Programming (Pure HTML dan CSS)</div>
+                                    <div class="skill-subtitle">Sejak 2019</div>
+                                    <ul>
+                                        <li>Mampu membuat sebuah website statis</li>
+                                        <li>Mampu membuat sebuah website dinamis</li>
+                                        <li>Mampu membuat sebuah website dengan style Material 5</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-image-wrapper">
+                                    <img class="skill-image" src="nodejs.png">
+                                </div>
+                                <div class="skill-content">
+                                    <div class="skill-title">NodeJS (JavaScript)</div>
+                                    <div class="skill-subtitle">Sejak 2020</div>
+                                    <ul>
+                                        <li>Mampu membuat sebuah backend/RestfulAPI menggunakan expressjs</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        Socials
+                        <div class="expandable">
+                            <img class="expandable-image" src="expand.png">
+                        </div>
+                    </div>
+                    <div class="expandable-content">
+                        <div class="social">
+                            <a target="_blank" class="social-hyperlink" href="https://www.instagram.com/sunaryathito/">
+                                <div class="social-item">
+                                    <div class="social-image-wrapper">
+                                        <img class="social-image" src="instagram.png">
+                                    </div>
+                                    <div class="social-info">@sunaryathito</div>
+                                    <div class="visit">Kunjungi</div>
+                                </div>
+                            </a>
+                            <a target="_blank" class="social-hyperlink" href="https://github.com/sunarya-thito">
+                                <div class="social-item">
+                                    <div class="social-image-wrapper">
+                                        <img class="social-image" src="github.png">
+                                    </div>
+                                    <div class="social-info">sunarya-thito</div>
+                                    <div class="visit">Kunjungi</div>
+                                </div>
+                            </a>
+                            <a target="_blank" class="social-hyperlink" href="https://www.facebook.com/thitoyalasatria">
+                                <div class="social-item">
+                                    <div class="social-image-wrapper">
+                                        <img class="social-image" src="fb.png">
+                                    </div>
+                                    <div class="social-info">Thito Yalasatria Sunarya</div>
+                                    <div class="visit">Kunjungi</div>
+                                </div>
+                            </a>
+                            <a target="_blank" class="social-hyperlink" href="https://www.youtube.com/Septogeddon">
+                                <div class="social-item">
+                                    <div class="social-image-wrapper">
+                                        <img class="social-image" src="youtube.png">
+                                    </div>
+                                    <div class="social-info">Septogeddon</div>
+                                    <div class="visit">Kunjungi</div>
+                                </div>
+                            </a>
+                            <a target="_blank" class="social-hyperlink" href="mailto:sunaryayalasatriathito@gmail.com">
+                                <div class="social-item">
+                                    <div class="social-image-wrapper">
+                                        <img class="social-image" src="gmail.png">
+                                    </div>
+                                    <div class="social-info">sunaryayalasatriathito@gmail.com</div>
+                                    <div class="visit">Kirim Email</div>
+                                </div>
+                            </a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
     </body>
 </html>
