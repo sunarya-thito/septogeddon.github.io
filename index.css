@@ -1,10 +1,12 @@
 @import url('http://fonts.cdnfonts.com/css/montserrat');
 
+/*Untuk keseluruhan html*/
 html {
     scroll-behavior: smooth;
     height: 100%;
 }
 
+/*Untuk keseluruhan body*/
 body {
     height: 100%;
     margin: 0;
@@ -13,34 +15,42 @@ body {
     font-family: 'Montserrat';
 }
 
-.overlay * {
-    transition: color;
-}
-
+/*Untuk keseluruhan yang memiliki class dark (untuk dark mode)*/
 .dark {
     color: white;
 }
 
+/*Untuk kartu pada saat dark mode*/
 .dark .card {
     background-color: #181818;
 }
 
+/*Untuk link pada saat dark mode*/
 .dark a {
     color: white;
 }
 
+/*Untuk gambar sosmed pada saat dark mode*/
 .dark .social-image {
     filter: invert() grayscale(1);
 }
 
+/*Untuk icon expand pada saat dark mode*/
 .dark .expandable-image {
     filter: invert();
 }
 
+/*Untuk lingkaran toggle pada saat dark mode*/
 .dark .toggle-circle {
     background-color: #181818;
 }
 
+/*Untuk background toggle pada saat dark mode*/
+.dark .toggle {
+    background-color: #37b437;
+}
+
+/*Untuk background bercorak*/
 #background {
     z-index: -1;
     position: fixed;
@@ -54,6 +64,7 @@ body {
     opacity: 0.2;
 }
 
+/*Wrapper container*/
 .overlay {
     position: relative;
     height: 100%;
@@ -63,6 +74,7 @@ body {
     align-items: center;
 }
 
+/*Wrapper kedua*/
 .wrapper {
     display: flex;
     flex-direction: column;
@@ -71,6 +83,7 @@ body {
     height: 100%;
 }
 
+/*Container utama*/
 .container {
     padding: 12.5% 0;
     position: relative;
@@ -79,22 +92,30 @@ body {
     justify-content: center;
     overflow-x: hidden;
     overflow-y: scroll;
-    -ms-overflow-style: none;
-    scrollbar-width: none;
+    /*-ms-overflow-style: none;*/
+    /*scrollbar-width: none;*/
 }
 
+/*Responsif*/
 @media only screen and (max-width: 1200px) {
     .wrapper {
         width: 70%;
     }
 }
 
+/*Responsif 2*/
 @media only screen and (max-width: 800px) {
     .wrapper {
         width: 90%;
     }
 }
 
+/*Untuk profile picture ketika dark*/
+.dark .pfp {
+    background-color: #444444;
+}
+
+/*Untuk profile picture*/
 .pfp {
     max-width: 10em;
     max-height: 10em;
@@ -103,8 +124,14 @@ body {
     position: relative;
     overflow: hidden;
     border-radius: 50%;
+    background-color: #bebebe;
+    margin-right: 2em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
+/*Untuk gambar pfp*/
 .pfp-img {
     display: inline;
     margin: 0 auto;
@@ -112,21 +139,31 @@ body {
     width: auto;
 }
 
+/*Untuk scrollbar di container*/
 .container::-webkit-scrollbar {
     display: none;
 }
 
+/*Untuk kartu*/
 .card {
     background-color: white;
     border-radius: 10px;
     box-shadow: rgba(0, 0, 0, 0.38) 0 5px 10px;
     padding: 1em 2em;
+    transition: background-color 0.5s ease;
 }
 
+/*Untuk semua element yang ada di kartu*/
+.card * {
+    transition: background-color 0.5s ease;
+}
+
+/*Untuk biodata*/
 .biodata {
     display: flex;
 }
 
+/*Untuk judul kartu*/
 .card-header {
     display: flex;
     align-items: center;
@@ -134,29 +171,34 @@ body {
     cursor: pointer;
 }
 
+/*Untuk bagian yg bisa di klik di kartu*/
 .expandable {
     display: flex;
     justify-content: end;
     flex: 1;
 }
 
+/*Untuk bagian isi expandable*/
 .expandable-content {
     overflow: hidden;
     max-height: 0;
     transition: max-height 0.5s ease;
 }
 
+/*Untuk simbol expand*/
 .expandable-image {
     width: 1.2em;
     height: 1.2em;
     opacity: 0.8;
-    transition: transform ease 0.5s;
+    transition: transform ease 0.5s, filter ease 0.5s;
 }
 
+/*Gambar untuk icon expand ketika di expand*/
 .expanded .expandable-image {
     transform: rotate(180deg);
 }
 
+/*Untuk riwayat hidup dan skill*/
 .history, .skill {
     margin-top: 2em;
     margin-bottom: 2em;
@@ -165,34 +207,41 @@ body {
     flex-direction: column;
 }
 
+/*Untuk item riwayat hidup dan skill*/
 .history-item, .skill-item {
     display: flex;
     gap: 1em;
 }
 
+/*Gambar penjelasan riwayat hidup, skill, dan sosmed*/
 .history-image, .skill-image, .social-image {
     width: 100%;
     height: auto;
 }
 
+/*Pembungkus gambar*/
 .skill-image-wrapper, .history-image-wrapper {
     position: relative;
     width: 4em;
 }
 
+/*Pembungkus gambar*/
 .social-image-wrapper {
     position: relative;
     width: 3em;
 }
 
+/*Judul item kartu riwayat hidup dan skill*/
 .history-title, .skill-title {
     font-size: 1.5em;
 }
 
+/*Sub judul item kartu*/
 .history-subtitle, .skill-subtitle {
     opacity: 0.5;
 }
 
+/*Bagian sosmed*/
 .social {
     margin: 2em 0;
     display: flex;
@@ -201,11 +250,14 @@ body {
     gap: 1em;
 }
 
+/*Sosmed*/
 .social-item {
     display: flex;
     align-items: center;
     gap: 1em;
 }
+
+/*Flag yg bisa divisit*/
 .visit {
     flex: 1;
     text-align: end;
@@ -213,20 +265,24 @@ body {
     opacity: 0;
 }
 
+/*Sosmed yg di hover*/
 .social-item:hover .visit {
     opacity: 0.5;
 }
 
+/*Sosmed berhyperlink*/
 .social-hyperlink {
     color: black;
     text-decoration: none;
 }
 
+/*Hyperlink normal*/
 .normal-hyperlink {
     color: black;
     text-decoration: none;
 }
 
+/*Judul entri*/
 .title-entry {
     height: 2em;
 
@@ -235,12 +291,14 @@ body {
     overflow: hidden;
 }
 
+/*Judul ber animasi*/
 .animated-title-entry {
     animation-name: pindahKeatas;
     animation-delay: 1s;
     animation-duration: 0.25s;
 }
 
+/*Animasi judul*/
 @keyframes pindahKeatas {
     from {
         transform: translateY(0);
@@ -250,20 +308,24 @@ body {
     }
 }
 
+/*Judul biodata*/
 .biodata-title {
     height: 2em;
     overflow: hidden;
 }
 
+/*Isi biodata*/
 .biodata-content {
     display: flex;
     flex-direction: column;
 }
 
+/*teks biodata*/
 .biodata-text {
     margin: 0.5em 0;
 }
 
+/*bagian akhir biodata*/
 .biodata-footer {
     flex: 1;
     display: flex;
@@ -271,6 +333,7 @@ body {
     align-items: end;
 }
 
+/*Switch*/
 .toggle {
     height: 1.5em;
     width: 3em;
@@ -279,6 +342,7 @@ body {
     border-radius: 2em;
 }
 
+/*Isi switch*/
 .mode-switcher {
     display: flex;
     align-items: center;

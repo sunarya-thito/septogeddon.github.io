@@ -13,6 +13,14 @@ function scanCard(card) {
     let content = card.querySelector('.expandable-content');
     if (expandable && content) {
         card.onclick = (e) => {
+            for (let other of document.querySelectorAll('.card')) {
+                if (other !== card) {
+                    other.classList.remove('expanded');
+                    let otherContent = other.querySelector('.expandable-content');
+                    if (!otherContent) continue;
+                    otherContent.style.maxHeight = '0';
+                }
+            }
             let target = e.target;
             while (target != null) {
                 if (target.classList.contains('social-hyperlink')) return;
@@ -50,7 +58,7 @@ window.addEventListener('DOMContentLoaded', () => {
    setInterval(() => {
        background.style.backgroundPositionX = offset + 'px';
        background.style.backgroundPositionY = offset + 'px';
-       offset = (offset + 0.1) % 1666;
+       offset = (offset + 0.1) % (1666 - (1666 / 10));
    }, 1);
    document.querySelectorAll('.card').forEach((card) => scanCard(card));
    document.querySelectorAll('.toggle').forEach((toggle) => {
